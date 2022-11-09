@@ -1,6 +1,6 @@
 let  addform = document.querySelector('.add')
 let list = document.querySelector('.todos')
-
+let search = document.querySelector('.search input')
 
 let  generateTemplate = (todo) => {
 
@@ -27,6 +27,8 @@ addform.addEventListener('click' , (e) => {
     }
 })
 
+
+
 // Delete todos
 list.addEventListener('click' , e => {
 
@@ -35,6 +37,24 @@ list.addEventListener('click' , e => {
     }
 })
 
+
+const filterTodos = (term) => {
+    Array.from(list.children)
+    .filter((todo) => !todo.textContent.includes(term))
+    .forEach((todo) => todo.classList.add('filtered'))
+
+    Array.from(list.children)
+    .filter((todo) =>  todo.textContent.includes(term))
+    .forEach((todo) => todo.classList.remove('filtered'))
+}
+
+
+// Keyup event
+search.addEventListener('keyup' , () => {
+    const term = search.value.trim();
+
+    filterTodos(term)
+})
 
 
 
