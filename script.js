@@ -23,6 +23,20 @@ addform.addEventListener('click' , (e) => {
 
     if(todo.length){
         generateTemplate(todo)
-        addform.reset()
+        // addform.reset()
     }
 })
+
+// Delete todos
+list.addEventListener('click' , e => {
+
+    if(e.target.classList.contains('delete')){
+        e.target.parentElement.remove()
+    }
+})
+
+
+
+
+
+
