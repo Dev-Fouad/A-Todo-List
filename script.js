@@ -1,7 +1,10 @@
+// ELEMENTS
 let  addform = document.querySelector('.add')
 let list = document.querySelector('.todos')
 let search = document.querySelector('.search input')
 
+
+// THE FUNCTION 
 let  generateTemplate = (todo) => {
 
     let html = `
@@ -14,6 +17,7 @@ let  generateTemplate = (todo) => {
     list.innerHTML += html 
 }
 
+// ADDING TODOS
 addform.addEventListener('click' , (e) => {
 
     e.preventDefault();
@@ -35,26 +39,26 @@ list.addEventListener('click' , e => {
     if(e.target.classList.contains('delete')){
         e.target.parentElement.remove()
     }
+
 });
 
 
-let  filterTodos = (term) => {
+// FILTERING THE SEARCH INPUT
+let filterTodos = (term) => {
 
-    // console.log(term);
     Array.from(list.children)
-    .filter((todo) => !todo.textContent.toLowerCase().includes(term))
-    .forEach((todo) => todo.classList.add('filtered'))
+    filter((todo) =>  !todo.textContent.toLowerCase().includes(term))
+    .forEach((todo) = todo.classList.add('filtered'))
 
     Array.from(list.children)
     .filter((todo) =>  todo.textContent.toLowerCase().includes(term))
-    .forEach((todo) => todo.classList.remove('filtered'))
+    .forEach((todo) = todo.classList.remove('filtered'))
 
 };
 
 
-// Keyup event
+// Keyup Event
 search.addEventListener('keyup' , () => {
-    const term = search.value.trim().toLowerCase();
-    filterTodos(term);
-});
-
+    let term = search.value.trim().toLowercase();
+    filterTodos(term)
+})
